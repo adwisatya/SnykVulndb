@@ -8,18 +8,18 @@ with open("README", "r", encoding="utf-8") as fh:
 setup(
   name = 'SnykVulndb',
   packages = ['SnykVulndb'],
-  version = '0.1',
+  version = '0.1.1',
   license='MIT',
   description = 'This library used for searching cve by package name and version using SNYK database. Basically it parse HTML from SNYK page',
   long_description=long_description,
   author = 'Aryya Widigdha',
   author_email = 'aryya.widigdha@yahoo.com',
   url = 'https://github.com/adwisatya/SnykVulndb',
-  download_url = 'https://github.com/adwisatya/SnykVulndb/archive/refs/tags/v0.1.tar.gz',
+  download_url = 'https://github.com/adwisatya/SnykVulndb/archive/refs/tags/v0.1.1.tar.gz',
   keywords = ['cve','snyk','snyk api'],
   install_requires=[
           'requests',
-          'lxml.html',
+          'lxml',
       ],
   classifiers=[
     'Development Status :: 3 - Alpha',
