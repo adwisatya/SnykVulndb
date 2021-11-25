@@ -10,7 +10,7 @@ class CveChecker:
         url = 'https://snyk.io/vuln/'+category+':'+lib_name+'@'+lib_version
         content = requests.get(url)
         if content.status_code >= 300:
-            raise Exception("Library name seems incorrect / not found in snyk library")
+            raise Exception("Library name seems incorrect / we can not found in snyk. Please check it manually here:"+url)
         return content
     def getVulnList(self,category,lib_name,lib_version):
         landing_page = self.getLandingPage(category,lib_name,lib_version)
@@ -24,6 +24,8 @@ class CveChecker:
                 pass
         return vuln_list
     def getCveList(self,category,lib_name,lib_version):
+        if category not in ["npm","pip","composer","maven"]:
+            return "You are scanning unsupported category. Please try something else"
         vuln_list = self.getVulnList(category,lib_name,lib_version)
         cves = []
         for vuln in vuln_list:
